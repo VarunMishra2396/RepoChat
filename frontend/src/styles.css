@@ -1,0 +1,117 @@
+:root {
+  --bg: #0f1115;
+  --panel: #171a21;
+  --border: #262b36;
+  --text: #e8eaf0;
+  --muted: #9aa3b2;
+  --accent: #6ea8fe;
+  --user: #1d2b45;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+}
+
+.app {
+  max-width: 800px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 0 16px;
+}
+
+header { padding: 28px 0 12px; }
+header h1 { margin: 0; font-size: 28px; }
+header p { margin: 6px 0 0; color: var(--muted); }
+
+.error {
+  background: #3a1d1d;
+  border: 1px solid #7a2e2e;
+  padding: 10px 14px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.chat { flex: 1; padding: 12px 0 20px; display: flex; flex-direction: column; gap: 14px; }
+
+.empty {
+  color: var(--muted);
+  background: var(--panel);
+  border: 1px dashed var(--border);
+  border-radius: 10px;
+  padding: 24px;
+  text-align: center;
+}
+.empty code { color: var(--accent); }
+
+.msg { display: flex; flex-direction: column; gap: 8px; }
+.msg.user { align-items: flex-end; }
+.msg.assistant { align-items: flex-start; }
+
+.bubble {
+  max-width: 85%;
+  padding: 10px 14px;
+  border-radius: 12px;
+  white-space: pre-wrap;
+  line-height: 1.5;
+}
+.msg.user .bubble { background: var(--user); }
+.msg.assistant .bubble { background: var(--panel); border: 1px solid var(--border); }
+
+.sources {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 12px;
+  max-width: 85%;
+  font-size: 13px;
+}
+.sources summary { cursor: pointer; color: var(--muted); }
+.sources ul { list-style: none; padding: 8px 0 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.src-path { color: var(--accent); font-family: ui-monospace, monospace; }
+.src-score { color: var(--muted); }
+.src-text {
+  margin: 6px 0 0;
+  padding: 8px;
+  background: var(--bg);
+  border-radius: 6px;
+  white-space: pre-wrap;
+  color: var(--muted);
+  max-height: 160px;
+  overflow: auto;
+}
+
+.composer {
+  display: flex;
+  gap: 8px;
+  padding: 12px 0 24px;
+  position: sticky;
+  bottom: 0;
+  background: var(--bg);
+}
+.composer input {
+  flex: 1;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text);
+  padding: 12px 14px;
+  font-size: 15px;
+}
+.composer button {
+  background: var(--accent);
+  border: none;
+  border-radius: 10px;
+  color: #0b0e14;
+  font-weight: 600;
+  padding: 0 22px;
+  font-size: 15px;
+  cursor: pointer;
+}
+.composer button:disabled { opacity: 0.5; cursor: default; }
